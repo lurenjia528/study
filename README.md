@@ -1,2 +1,2 @@
 # etcdstudy
-etcd v2 v3 api java
+etcd v2api v3 api java

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.mousio:etcd4j:2.16.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../Java/gradle-4.6-all/gradle-4.6/caches/modules-2/files-2.1/org.mousio/etcd4j/2.16.0/cae24ce1e986a64ab792c22fb86e58294ec42dfb/etcd4j-2.16.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../Java/gradle-4.6-all/gradle-4.6/caches/modules-2/files-2.1/org.mousio/etcd4j/2.16.0/eaa814cdab9198fdde0412598abe1382a68dbed/etcd4j-2.16.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,25 @@
+group 'com.ygt.etcdstudy'
+version '0.1'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    mavenCentral()
+}
+
+dependencies {
+    //etcd V2 api
+    compile group: 'org.mousio', name: 'etcd4j', version: '2.16.0'
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.23.Final'
+
+
+    compile group: 'io.netty', name: 'netty-handler', version: '4.1.27.Final'
+    compile group: 'io.grpc', name: 'grpc-netty-shaded', version: '1.15.1'
+    compile group: 'io.netty', name: 'netty-tcnative-boringssl-static', version: '2.0.12.Final'
+    compile group: 'com.coreos', name: 'jetcd-core', version: '0.0.2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

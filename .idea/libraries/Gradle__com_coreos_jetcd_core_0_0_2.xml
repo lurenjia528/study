@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.coreos:jetcd-core:0.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../Java/gradle-4.6-all/gradle-4.6/caches/modules-2/files-2.1/com.coreos/jetcd-core/0.0.2/93e14462fdc3e26856a9e1165bccb0e8ba183ed8/jetcd-core-0.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../Java/gradle-4.6-all/gradle-4.6/caches/modules-2/files-2.1/com.coreos/jetcd-core/0.0.2/49b5f2631d990297488a4de1070ad0d4135adbcd/jetcd-core-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
