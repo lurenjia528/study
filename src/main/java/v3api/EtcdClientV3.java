@@ -14,17 +14,18 @@ import java.util.concurrent.CompletableFuture;
  * @date 2018/10/23
  */
 public class EtcdClientV3 {
+
     public static void main(String[] args) throws Exception {
 
         Client client = Client.builder().endpoints("http://192.168.200.222:2379").build();
 
         KV kvClient = client.getKVClient();
 
-        putKeyValue(kvClient,"/hello","world");
+        putKeyValue(kvClient, "/hello", "world");
 
         getKeyValue(kvClient, "/hello", "utf-8");
 
-        deleteKey(kvClient,"/hello");
+        deleteKey(kvClient, "/hello");
 
         kvClient.close();
         client.close();
@@ -64,6 +65,7 @@ public class EtcdClientV3 {
 
     /**
      * 删除指定的key
+     *
      * @param kvClient
      * @param key
      * @throws Exception
