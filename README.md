@@ -17,4 +17,6 @@ v3版本api认证需要PKCS8类型的key.pem文件，由以下命令生成
 
 ## docker
 
+安装haobor后
+
 java 远程调用docker api
