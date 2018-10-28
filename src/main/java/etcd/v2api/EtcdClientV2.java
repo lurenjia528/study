@@ -1,4 +1,4 @@
-package v2api;
+package etcd.v2api;
 
 import mousio.etcd4j.EtcdClient;
 import mousio.etcd4j.requests.EtcdKeyPutRequest;

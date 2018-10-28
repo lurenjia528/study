@@ -1,4 +1,4 @@
-package v3api;
+package etcd.v3api;
 
 import com.coreos.jetcd.Client;
 import com.coreos.jetcd.KV;
@@ -21,8 +21,8 @@ public class EtcdClientV3Ssl {
     private static KV kvClient;
 
     private static void initClient() throws Exception {
-        File cert = new File("E:\\softwarelocation\\code\\IdeaProjects\\etcdstudy\\src\\main\\java\\v3api\\etcd.pem");
-        File pkcs8Key = new File("E:\\softwarelocation\\code\\IdeaProjects\\etcdstudy\\src\\main\\java\\v3api\\pkcs8-key.pem");
+        File cert = new File("E:\\softwarelocation\\code\\IdeaProjects\\study\\src\\main\\java\\etcd\\v3api\\etcd.pem");
+        File pkcs8Key = new File("E:\\softwarelocation\\code\\IdeaProjects\\study\\src\\main\\java\\etcd\\v3api\\pkcs8-key.pem");
 
         client = Client.builder()
                 .endpoints("https://192.168.200.222:2379")
@@ -88,9 +88,6 @@ public class EtcdClientV3Ssl {
         kvClient.delete(ByteSequence.fromString(key)).get();
     }
 
-    /**
-     * 关闭客户端
-     */
     private static void closeClient() {
         kvClient.close();
         client.close();

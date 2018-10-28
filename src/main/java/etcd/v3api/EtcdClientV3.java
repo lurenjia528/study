@@ -1,4 +1,4 @@
-package v3api;
+package etcd.v3api;
 
 import com.coreos.jetcd.Client;
 import com.coreos.jetcd.KV;
