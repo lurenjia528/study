@@ -60,7 +60,7 @@ public class Api {
 //        System.out.println(result);
 
         //docker save  OK
-        //生成的文件在当前目录，下昂指定路径和文件名
+        //生成的文件在当前目录，下指定路径和文件名
 //        url = "http://harbor.ygt.cn:4243/images/harbor.ygt.cn/ygt/busybox:0.0.3/get";
 //        result = sendRequestUtil.send(null,url,"GET");
 //        String responseData = result.get("responseData");

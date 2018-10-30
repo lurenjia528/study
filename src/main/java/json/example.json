@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "58659f976f045f9c69c53efb",
+    "index": 4,
+    "guid": "3cbaef3d-25ab-48d0-8807-1974f6aad336",
+    "isActive": true,
+    "balance": "$1,854.63",
+    "picture": "http://placehold.it/32x32",
+    "age": 26,
+    "eyeColor": "brown",
+    "name": "Briggs Larson",
+    "gender": "male",
+    "company": "ZOXY",
+    "email": "briggslarson@zoxy.com",
+    "phone": "+1 (807) 588-3350",
+    "address": "994 Nichols Avenue, Allamuchy, Guam, 3824",
+    "about": "Sunt velit ullamco consequat velit ad nisi in sint qui qui ut eiusmod eu. Et ut aliqua mollit cupidatat et proident tempor do est enim exercitation amet aliquip. Non exercitation proident do duis non ullamco do esse dolore in occaecat. Magna ea labore aliqua laborum ad amet est incididunt et quis cillum nulla. Adipisicing veniam nisi esse officia dolor labore. Proident fugiat consequat ullamco fugiat. Est et adipisicing eiusmod excepteur deserunt pariatur aute commodo dolore occaecat veniam dolore.\r\n",
+    "registered": "2014-07-21T03:28:39 -08:00",
+    "latitude": -59.741245,
+    "longitude": -9.657004,
+    "friends": [
+      {
+        "id": 0,
+        "name": "Herminia Mcknight"
+      },
+      {
+        "id": 1,
+        "name": "Leann Harding"
+      },
+      {
+        "id": 2,
+        "name": "Marisol Sykes"
+      }
+    ],
+    "tags": [
+      "ea",
+      "velit",
+      "sunt",
+      "fugiat",
+      "do",
+      "Lorem",
+      "nostrud"
+    ],
+    "greeting": "Hello, Briggs Larson! You have 3 unread messages.",
+    "favoriteFruit": "apple"
+  }
+]
