@@ -15,6 +15,15 @@ v3版本api认证需要PKCS8类型的key.pem文件，由以下命令生成
 
 ` openssl pkcs8 -topk8 -nocrypt -in etcd-key.pem -out pkcs8-key.pem`
 
+etcd restapi 
+
+`http://editor.swagger.io/`
+
+`https://github.com/etcd-io/etcd/blob/master/Documentation/dev-guide/apispec/swagger/rpc.swagger.json`
+
+`https://github.com/etcd-io/etcd/blob/master/Documentation/dev-guide/api_grpc_gateway.md`
+
+
 ## docker
 
 安装haobor后
