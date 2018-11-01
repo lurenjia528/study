@@ -74,7 +74,12 @@ public class EtcdClientV3Ssl {
      * @throws Exception
      */
     private static void putKey(KV kvClient, String key, String value) throws Exception {
-        kvClient.put(ByteSequence.fromString(key), ByteSequence.fromString(value)).get();
+         CompletableFuture<PutResponse> put = kvClient.put(ByteSequence.fromString(key), ByteSequence.fromString(value));
+         put.get();
+            while (!put.isDone()) {
+                System.out.println("写etcd中...");
+            }
+        System.out.println("写入完成");
     }
 
     /**
