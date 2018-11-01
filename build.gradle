@@ -1,7 +1,27 @@
-group 'com.ygt.etcdstudy'
+buildscript {
+    ext {
+        springBootVersion = '2.1.0.RELEASE'
+    }
+
+    repositories {
+        mavenLocal()
+//		maven{url 'http://192.168.17.247:8081/nexus/content/groups/public/'}
+        maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+group 'com.ygt.study'
 version '0.1'
 
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
@@ -29,4 +49,6 @@ dependencies {
 
     //jsoniter
     compile 'com.jsoniter:jsoniter:0.9.19'
+
+    compile('org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE')
 }
