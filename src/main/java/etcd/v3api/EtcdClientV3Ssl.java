@@ -5,6 +5,7 @@ import com.coreos.jetcd.KV;
 import com.coreos.jetcd.data.ByteSequence;
 import com.coreos.jetcd.data.KeyValue;
 import com.coreos.jetcd.kv.GetResponse;
+import com.coreos.jetcd.kv.PutResponse;
 import io.grpc.netty.GrpcSslContexts;
 
 import java.io.File;
