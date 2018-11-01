@@ -54,3 +54,7 @@ harbor api
 ## json
 
 jsoniter fastjson
+
+## jar
+
+增加读取jar包中文件测试
