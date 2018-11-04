@@ -26,7 +26,7 @@ etcd restapi
 
 ## docker
 
-安装haobor后
+安装harbor后
 
 java 远程调用docker api
 
