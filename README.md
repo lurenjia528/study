@@ -23,6 +23,7 @@ etcd restapi
 
 `https://github.com/etcd-io/etcd/blob/master/Documentation/dev-guide/api_grpc_gateway.md`
 
+arm架构下连接etcd，需要netty-tcnative-2.0.12.Final-linux-aarch_64.jar，添加进依赖
 
 ## docker
 

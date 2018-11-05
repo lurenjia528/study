@@ -36,6 +36,9 @@ dependencies {
     compile group: 'org.mousio', name: 'etcd4j', version: '2.16.0'
     compile group: 'io.netty', name: 'netty-all', version: '4.1.27.Final'
 
+    // arm netty
+    dependencies { compile files('lib/netty-tcnative-2.0.12.Final-linux-aarch_64.jar')}
+  
     //etcd V3 api
     compile group: 'io.netty', name: 'netty-handler', version: '4.1.27.Final'
     compile group: 'io.grpc', name: 'grpc-all', version: '1.15.1'
