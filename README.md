@@ -65,3 +65,7 @@ jsoniter fastjson
 k8s Restful Api 和客户端的使用
 
 需要把k8s集群master节点上的~/.kube/config 复制到此电脑的相同目录(~/.kube/config)
+
+## freemarker 
+
+freemarker 调用java方法

@@ -6,7 +6,7 @@ buildscript {
     repositories {
         mavenLocal()
 //		maven{url 'http://192.168.17.247:8081/nexus/content/groups/public/'}
-        maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         mavenCentral()
     }
 
@@ -37,8 +37,8 @@ dependencies {
     compile group: 'io.netty', name: 'netty-all', version: '4.1.27.Final'
 
     // arm netty
-    dependencies { compile files('lib/netty-tcnative-2.0.12.Final-linux-aarch_64.jar')}
-  
+    dependencies { compile files('lib/netty-tcnative-2.0.12.Final-linux-aarch_64.jar') }
+
     //etcd V3 api
     compile group: 'io.netty', name: 'netty-handler', version: '4.1.27.Final'
     compile group: 'io.grpc', name: 'grpc-all', version: '1.15.1'
@@ -48,7 +48,7 @@ dependencies {
     //okhttp
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
     //fastjson
-    compile ('com.alibaba:fastjson:1.2.28')
+    compile('com.alibaba:fastjson:1.2.28')
 
     //jsoniter
     compile 'com.jsoniter:jsoniter:0.9.19'
@@ -58,4 +58,7 @@ dependencies {
     // k8s
     compile group: 'io.fabric8', name: 'kubernetes-client', version: '4.0.5'
     compile group: 'io.fabric8', name: 'kubernetes-model', version: '3.0.3'
+
+    // freemarker
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '2.1.0.RELEASE'
 }
