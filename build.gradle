@@ -61,4 +61,7 @@ dependencies {
 
     // freemarker
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '2.1.0.RELEASE'
+
+    //邮件
+    compile 'com.sun.mail:javax.mail:1.6.0'
 }

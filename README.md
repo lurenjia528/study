@@ -69,3 +69,5 @@ k8s Restful Api 和客户端的使用
 ## freemarker 
 
 freemarker 调用java方法
+
+## 添加发送邮件测试

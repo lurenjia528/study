@@ -1,2 +1,28 @@
 server:
   port: 8888
+
+
+
+#mail.smtp.auth=true
+#mail.smtp.timeout=5000
+#mail.is.ssl=true
+
+#mail.transport.protocol=smtp
+#mail.send.charset=UTF-8
+#mail.smtp.port=465
+#mail.host=smtp.163.com
+#mail.auth.name=13683209871@163.com
+#mail.auth.password=11cptbtptp24
+
+
+spring:
+  mail:
+    default-encoding: UTF-8
+    port: 465
+    host: smtp.163.com
+    protocol: smtp
+    username: 13683209871@163.com
+    password: 11cptbtptp24
+    auth: true
+    ssl: true
+    timeout: 5000
