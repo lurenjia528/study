@@ -71,3 +71,7 @@ k8s Restful Api 和客户端的使用
 freemarker 调用java方法
 
 ## 添加发送邮件测试
+
+## 添加actuator监控测试
+
+访问路径：http://localhost:8888/actuator/metrics  health  info  ...

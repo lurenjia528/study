@@ -53,7 +53,11 @@ dependencies {
     //jsoniter
     compile 'com.jsoniter:jsoniter:0.9.19'
 
+    //springboot
     compile('org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE')
+
+    //actuator
+    compile('org.springframework.boot:spring-boot-starter-actuator:2.1.0.RELEASE')
 
     // k8s
     compile group: 'io.fabric8', name: 'kubernetes-client', version: '4.0.5'
