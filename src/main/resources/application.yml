@@ -41,4 +41,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*' #加载所有的端点，默认只加载了info、health  类型Set  ['','',''...]
+        include: "*" #加载所有的端点，默认只加载了info、health  类型Set  ['','',''...]
+  endpoint:
+    health:
+      show-details: always
