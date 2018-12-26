@@ -32,6 +32,9 @@ restapi
 
 `{"header":{"cluster_id":"9387297561454088963","member_id":"8976880612339134383","raft_term":"115"},"members":[{"ID":"8679419496537157493","name":"kube-etcd2","peerURLs":["http://192.168.17.161:2380"],"clientURLs":["https://192.168.17.161:2379"]},{"ID":"8976880612339134383","name":"kube-etcd1","peerURLs":["http://192.168.17.160:2380"],"clientURLs":["https://192.168.17.160:2379"]},{"ID":"12506278219037213787","name":"kube-etcd3","peerURLs":["http://192.168.17.162:2380"],"clientURLs":["https://192.168.17.162:2379"]}]}`
 
+`curl -X POST -H 'Content-type: application/json' -d '{}' --cacert /etc/etcd/ssl/etcd-ca.pem --cert /etc/etcd/ssl/etcd.pem --key /etc/etcd/ssl/etcd-key.pem https://127.0.0.1:2379/metrics`
+
+
 
 ## docker
 
