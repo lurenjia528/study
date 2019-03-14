@@ -9,7 +9,10 @@ etcd etcd.v2api etcd.v3api java ssl
 ``` bash
  etcdctl --cacert /etc/etcd/ssl/etcd-ca.pem --cert /etc/etcd/ssl/etcd.pem --key /etc/etcd/ssl/etcd-key.pem get /hello
 ```
-
+显示所有头key
+```bash
+ etcdctl --cacert /etc/etcd/ssl/etcd-ca.pem --cert /etc/etcd/ssl/etcd.pem --key /etc/etcd/ssl/etcd-key.pem get / --prefix --keys-only
+```
 
 v3版本api认证需要PKCS8类型的key.pem文件，由以下命令生成
 
