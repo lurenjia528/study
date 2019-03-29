@@ -89,3 +89,10 @@ freemarker 调用java方法
 ## 添加actuator监控测试
 
 访问路径：http://localhost:8888/actuator/metrics  health  info  ...
+
+
+## 添加文件上传/下载测试
+
+http://localhost:8888/file/upload
+
+http://localhost:8888/file/download
