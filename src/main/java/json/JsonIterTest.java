@@ -17,7 +17,7 @@ public class JsonIterTest {
     public static void main(String[] args) throws Exception {
 //        test();
 
-        String s = readToBuffer("src/main/java/json/example.json");
+        String s = readToBuffer("src/WebSocketClient/java/json/example.json");
         Any deserialize = JsonIterator.deserialize(s);
         List<Any> anies = deserialize.asList();
         Map<String, Any> stringAnyMap = anies.get(0).asMap();
@@ -27,7 +27,7 @@ public class JsonIterTest {
         System.out.println("name:" + name);
 
         long l1 = System.currentTimeMillis();
-        String s1 = readToBuffer("src/main/java/json/example1.json");
+        String s1 = readToBuffer("src/WebSocketClient/java/json/example1.json");
         JsonIterator parse = JsonIterator.parse(s1);
         int calc = calc(parse);
         long l2 = System.currentTimeMillis();

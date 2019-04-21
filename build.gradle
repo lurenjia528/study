@@ -59,13 +59,19 @@ dependencies {
     //actuator
     compile('org.springframework.boot:spring-boot-starter-actuator:2.1.0.RELEASE')
     compile('io.micrometer:micrometer-registry-prometheus')
-    
+
     // k8s
     compile group: 'io.fabric8', name: 'kubernetes-client', version: '4.0.5'
     compile group: 'io.fabric8', name: 'kubernetes-model', version: '3.0.3'
 
     // freemarker
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '2.1.0.RELEASE'
+
+    // websocket
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: '2.1.0.RELEASE'
+
+    // lombox
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
 
     //邮件
     compile 'com.sun.mail:javax.mail:1.6.0'

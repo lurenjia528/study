@@ -18,24 +18,24 @@ import java.io.InputStreamReader;
 public class FilePathTest {
 
     public static void main(String[] args) {
-        File file = new File("E:\\softwarelocation\\code\\IdeaProjects\\study\\src\\main\\java\\json\\example.json");
+        File file = new File("E:\\softwarelocation\\code\\IdeaProjects\\study\\src\\WebSocketClient\\java\\json\\example.json");
         //true
         System.out.println(file.exists());
-        //E:\softwarelocation\code\IdeaProjects\study\src\main\java\json\example.json
+        //E:\softwarelocation\code\IdeaProjects\study\src\WebSocketClient\java\json\example.json
         System.out.println(file.getPath());
-        //E:\softwarelocation\code\IdeaProjects\study\src\main\java\json\example.json
+        //E:\softwarelocation\code\IdeaProjects\study\src\WebSocketClient\java\json\example.json
         System.out.println(file.getAbsolutePath());
     }
 
     @GetMapping("/test")
     public void test() {
-        File file = new File("src\\main\\java\\json\\example.json");
-        //在idea中运行项目     结果： src\main\java\json\example.json
-        //java -jar 运行项目  结果： src\main\java\json\example.json
+        File file = new File("src\\WebSocketClient\\java\\json\\example.json");
+        //在idea中运行项目     结果： src\WebSocketClient\java\json\example.json
+        //java -jar 运行项目  结果： src\WebSocketClient\java\json\example.json
         System.out.println(file.getPath());
 
-        //在idea中运行项目      结果： E:\softwarelocation\code\IdeaProjects\study\src\main\java\json\example.json
-        //java -jar 运行项目   结果： E:\softwarelocation\code\IdeaProjects\study\build\libs\src\main\java\json\example.json
+        //在idea中运行项目      结果： E:\softwarelocation\code\IdeaProjects\study\src\WebSocketClient\java\json\example.json
+        //java -jar 运行项目   结果： E:\softwarelocation\code\IdeaProjects\study\build\libs\src\WebSocketClient\java\json\example.json
         System.out.println(file.getAbsolutePath());
         //在idea中运行项目      结果： true
         //java -jar 运行项目   结果： false

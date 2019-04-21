@@ -96,3 +96,5 @@ freemarker 调用java方法
 http://localhost:8888/file/upload
 
 http://localhost:8888/file/download
+
+## 添加简单websocket

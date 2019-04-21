@@ -12,7 +12,7 @@ import static util.FileUtil.readToBuffer;
 public class FastJsonTest {
     public static void main(String[] args) throws Exception {
         long l1 = System.currentTimeMillis();
-        String s = readToBuffer("src/main/java/json/example1.json");
+        String s = readToBuffer("src/WebSocketClient/java/json/example1.json");
         JSONObject parse = JSONObject.parseObject(s);
         JSONArray users = parse.getJSONArray("users");
         JSONObject jsonObject = users.getJSONObject(0);
