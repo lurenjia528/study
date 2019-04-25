@@ -140,4 +140,7 @@ dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock --tlsverify --tlsca
 ```
 
 添加依赖
+//对低版本不太友好(https remote api)
 com.github.docker-java:docker-java:3.1.2
+//对低版本也支持
+com.spotify:docker-client:8.15.2
