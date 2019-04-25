@@ -39,11 +39,9 @@ restapi
 
 
 
-## docker
+## harbor
 
 安装harbor后
-
-java 远程调用docker api
 
 harbor token使用
 https://github.com/goharbor/harbor/wiki/Harbor-FAQs#api
@@ -98,3 +96,48 @@ http://localhost:8888/file/upload
 http://localhost:8888/file/download
 
 ## 添加简单websocket
+
+## docker remote api
+
+开启普通http接口
+```bash
+dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock
+
+cat docker.socket
+[Unit]
+Description=Docker Socket for the API
+PartOf=docker.service
+
+[Socket]
+ListenStream=/var/run/docker.sock
+SocketMode=0660
+SocketUser=root
+SocketGroup=docker
+
+[Install]
+WantedBy=sockets.target
+
+```
+
+开启tls认证的remote 接口
+
+参考 https://docs.docker.com/engine/security/https/
+
+服务端
+```bash
+ls /root/.docker/tls
+ca.pem  server-cert.pem  server-key.pem
+```
+
+客户端
+```bash
+ls /home/ht061/.docker/tls
+ca.pem  cert.pem  key.pem
+```
+
+```bash
+dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock --tlsverify --tlscacert=/root/.docker/tls/ca.pem --tlscert=/root/.docker/tls/server-cert.pem --tlskey=/root/.docker/tls/server-key.pem
+```
+
+添加依赖
+com.github.docker-java:docker-java:3.1.2
