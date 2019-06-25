@@ -1,5 +1,7 @@
 package controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +21,11 @@ import java.io.File;
  */
 @Controller
 @RequestMapping("/file")
+@Slf4j
 public class FileUploadDownload {
+
+    @Value("${projectName}")
+    private String projectName;
 
     /**
      * 文件上传测试
@@ -27,6 +33,7 @@ public class FileUploadDownload {
     @RequestMapping("/upload")
     @ResponseBody
     public void upload() throws Exception {
+        log.info("日志测试[{}]",projectName);
         File f = new File("/home/ht061/ygt/11/dat2.txt");
         // src dist
         FileCopyUtils.copy(f, new File("/home/ht061/ygt/1.txt"));
