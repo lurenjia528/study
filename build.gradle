@@ -50,7 +50,7 @@ dependencies {
     compile group: 'com.coreos', name: 'jetcd-core', version: '0.0.2'
 
     //okhttp
-    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.squareup.okhttp3:okhttp:4.0.0'
     //fastjson
     compile('com.alibaba:fastjson:1.2.28')
 
