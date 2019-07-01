@@ -29,8 +29,8 @@ spring:
     port: 465
     host: smtp.163.com
     protocol: smtp
-    username: 13683209871@163.com
-    password: 11cptbtptp24
+    username: xxx@163.com
+    password: xxxx
     auth: true
     ssl: true
     timeout: 5000
