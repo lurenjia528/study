@@ -2,6 +2,7 @@ package controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,7 @@ import java.io.File;
 @Controller
 @RequestMapping("/file")
 @Slf4j
+@RefreshScope
 public class FileUploadDownload {
 
     @Value("${projectName}")
@@ -58,5 +60,12 @@ public class FileUploadDownload {
                 .contentLength(file1.contentLength())
                 .contentType(MediaType.parseMediaType("application/octet-stream"))
                 .body(new InputStreamResource(file1.getInputStream()));
+    }
+
+    @GetMapping("/test-refresh")
+    @RefreshScope
+    @ResponseBody
+    public String getProjectName() {
+        return projectName;
     }
 }

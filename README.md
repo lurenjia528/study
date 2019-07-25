@@ -144,3 +144,21 @@ dockerd -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock --tlsverify --tlsca
 com.github.docker-java:docker-java:3.1.2
 //对低版本也支持
 com.spotify:docker-client:8.15.2
+
+## springboot 热更新配置文件
+
+@RefreshScope注解
+
+启动项目,访问
+
+`http://127.0.0.1:8888/file/test-refresh`
+
+更改application.yml
+
+发送请求更新配置
+
+`curl -v  -X POST http://127.0.0.1:8888/actuator/refresh`
+
+再次访问
+
+`http://127.0.0.1:8888/file/test-refresh`
