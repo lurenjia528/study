@@ -9,18 +9,19 @@ import java.net.URI;
  */
 @ClientEndpoint
 public class WebSocketClientT {
-    private String uri = "ws://localhost:4243/containers/5b1ff7369f1d/attach/ws?stream=true&stdout=true&logs=true&stdin=1&stderr=true";
+    private String uri = "ws://localhost:4243/containers/867a99982579/attach/ws?stream=true&stdout=true&logs=true&stdin=true&stderr=true";
     public Session session;
 
     @OnOpen
-    public void onOpen(Session session) {
+    public void onOpen(Session session) throws Exception{
         this.session = session;
         System.out.println("open");
     }
 
     @OnMessage
-    public void onMessage(String message) {
+    public void onMessage(String message) throws Exception{
         System.out.println(message);
+
     }
 
     @OnError
