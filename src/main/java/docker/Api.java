@@ -1,14 +1,15 @@
 package docker;
 
 import com.alibaba.fastjson.JSONObject;
+import okhttp3.*;
+import org.apache.http.client.HttpClient;
 import util.SendRequestUtils;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author lurenjia
@@ -24,7 +25,7 @@ public class Api {
     public static void main(String[] args) throws Exception {
 //        system();
 //        image();
-//        container();
+        container();
 //        network();
 //        volumes();
     }
@@ -32,7 +33,7 @@ public class Api {
     /**
      * 存储卷操作
      */
-    public static void volumes(){
+    public static void volumes() {
         // docker volume ls
 //        url = "http://harbor.ygt.cn:4243/volumes";
 //        result = sendRequestUtil.send(null, url, "GET");
@@ -112,7 +113,7 @@ public class Api {
     /**
      * 容器操作
      */
-    public static void container() {
+    public static void container() throws IOException {
         // docker ps
         // docker ps -a
         //  docker ps -f status=exited
@@ -167,13 +168,35 @@ public class Api {
 //        System.out.println(result);
 
         // docker logs containerId
-//        url = "http://harbor.ygt.cn:4243/containers/5b1ff7369f1d/logs?stdout=true";
+//        url = "http://harbor.ygt.cn:4243/containers/8e704c37956a/logs?stdout=true";
 //        result = sendRequestUtil.send(null, url, "GET");
 //        System.out.println(result);
 
+        // docker logs -f  本地模式,web模式见src/main/java/websocket/
+//        url = "http://harbor.ygt.cn:4243/containers/8e704c37956a/logs?stdout=true&follow=true";
+//        OkHttpClient client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
+//        RequestBody body = null;
+//        Request request = new Request.Builder()
+//                .url(url).method("GET", body)
+//                .build();
+//        Response response;
+//        response = client.newCall(request).execute();
+//        System.out.println(response.code());
+//        InputStream inputStream = response.body().byteStream();
+//        byte[] buf = new byte[1024];
+//        // 定义一个StringBuffer用来存放字符串
+//        StringBuffer sb = new StringBuffer();
+//        // 开始读取数据
+//        int len = 0;// 每次读取到的数据的长度
+//        while ((len = inputStream.read(buf)) != -1) {// len值为-1时，表示没有数据了
+//            // append方法往sb对象里面添加数据
+//            sb.append(new String(buf, 0, len, "utf-8"));
+//            System.out.println(sb.toString());
+//        }
+
         // 向容器发送命令,接收返回
         // docker exec -it 5b1ff7369f1d ps -ef
-//        url = "http://harbor.ygt.cn:4243/containers/5b1ff7369f1d/exec";
+//        url = "http://127.0.0.1:4243/containers/8e704c37956a/exec";
 //        jo.put("AttachStdin", false);
 //        jo.put("AttachStdout", true);
 //        jo.put("AttachStderr", true);
@@ -182,17 +205,14 @@ public class Api {
 //        result = sendRequestUtil.send(jo.toJSONString(), url, "POST");
 //        System.out.println(result);//{responseData={"Id":"f42352076f5e59937b90edb773253262c8e99c673364df105f831590c7b7b3b7"},responseCode=201}
 //        String id = JSONObject.parseObject(result.get("responseData")).getString("Id");
-//        url = "http://harbor.ygt.cn:4243/exec/" + id + "/start";
+//        url = "http://127.0.0.1:4243/exec/" + id + "/start";
 //        jo.put("Detach", false);
 //        jo.put("Tty", false);
 //        result = sendRequestUtil.send(jo.toJSONString(), url, "POST");
 //        System.out.println(result);
 
-        // docker attach containerId
-        // todo error
-//        url = "http://harbor.ygt.cn:4243/containers/5b1ff7369f1d/attach?logs=true&stdout=true&stream=true HTTP/1.1";
-//        result = sendRequestUtil.send(null, url, "POST");
-//        System.out.println(result);
+        // docker attach 链接本地stdin,stdout,stderr到容器中,退出后容器也退出
+        // docker exec 相当于在容器中新起一个终端,退出终端后对容器无影响
 
     }
 
@@ -296,7 +316,6 @@ public class Api {
 
     /**
      * byte[] -> file
-     *
      */
     public static void getFile(byte[] bfile, String filePath, String fileName) {
         BufferedOutputStream bos = null;
