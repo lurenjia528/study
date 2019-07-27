@@ -1,3 +1,9 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
 <script>
     var socket;
     if(typeof(WebSocket) == "undefined") {
@@ -6,9 +12,7 @@
         console.log("support WebSocket");
         //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
         //等同于
-        // socket = new WebSocket("ws://localhost:8888/websocket/20");
-        socket = new WebSocket("ws://localhost:4243/containers/5b1ff7369f1d/attach/ws?stream=true&stdout=true&logs=0");
-        // socket = new WebSocket("${basePath}websocket/${cid}".replace("http","ws"));
+        socket = new WebSocket("ws://localhost:8888/websocket/20");
         //打开事件
         socket.onopen = function() {
             console.log("Socket opened");
@@ -16,7 +20,7 @@
         };
         //获得消息事件
         socket.onmessage = function(msg) {
-            console.log(msg.data);
+            console.log(msg.data.toLocaleString());
             //发现消息进入    开始处理前端触发逻辑
         };
         //关闭事件
@@ -35,3 +39,7 @@
         //});
     }
 </script>
+</html>
+
+
+
