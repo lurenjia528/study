@@ -21,6 +21,9 @@ import okhttp3.Response;
 import org.springframework.stereotype.Component;
 
 
+/**
+ * docker logs -f
+ */
 @ServerEndpoint("/websocket/{sid}")
 @Component
 @Slf4j
