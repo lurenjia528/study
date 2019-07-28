@@ -172,7 +172,7 @@ public class Api {
 //        result = sendRequestUtil.send(null, url, "GET");
 //        System.out.println(result);
 
-        // docker logs -f  本地模式,web模式见src/main/java/websocket/
+        // docker logs -f  本地模式,web模式见src/main/java/docker.websocket/
 //        url = "http://harbor.ygt.cn:4243/containers/8e704c37956a/logs?stdout=true&follow=true";
 //        OkHttpClient client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
 //        RequestBody body = null;

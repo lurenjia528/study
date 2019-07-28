@@ -1,4 +1,4 @@
-package websocket;
+package docker.websocket;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,7 +54,7 @@ public class DockerLogsWebSocketServer {
         try {
             sendMessage("连接成功");
         } catch (IOException e) {
-            log.error("websocket IO异常");
+            log.error("docker.websocket IO异常");
         }
     }
 
