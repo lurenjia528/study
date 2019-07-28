@@ -9,7 +9,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
  * @date 2018/11/1
  */
 @SpringBootApplication
-@ComponentScan(value = {"controller","websocket"})
+@ComponentScan(value = {"controller", "docker.websocket"})
 @EnableWebSocket
 public class StudyApplication {
     public static void main(String[] args) {
