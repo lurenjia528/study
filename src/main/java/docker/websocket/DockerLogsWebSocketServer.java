@@ -101,7 +101,6 @@ public class DockerLogsWebSocketServer {
      * docker logs -f  前台console.log输出乱码,推测是终端颜色的问题
      */
     public void sendMessage(String message) throws IOException {
-//        for(int i=0;i<100;i++){
         String url = "http://harbor.ygt.cn:4243/containers/" + cid + "/logs?stdout=true&follow=true&tail=50";
         OkHttpClient client = new OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
         RequestBody body = null;
