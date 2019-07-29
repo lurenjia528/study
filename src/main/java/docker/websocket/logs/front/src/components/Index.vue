@@ -21,7 +21,7 @@ export default {
     Terminal.applyAddon(webLinks);
 
     const terminal = new Terminal();
-    const ws = new WebSocket("ws://127.0.0.1:8888/log/20/867a99982579");
+    const ws = new WebSocket("ws://127.0.0.1:8888/log/20/9bbf8b61112b/192.168.40.103");
     ws.onclose = function() {
       console.log("服务器关闭了连接");
     };

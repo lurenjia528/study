@@ -1,4 +1,4 @@
-package docker.websocket;
+package docker.websocket.logs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
