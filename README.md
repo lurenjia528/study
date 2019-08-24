@@ -162,3 +162,69 @@ com.spotify:docker-client:8.15.2
 再次访问
 
 `http://127.0.0.1:8888/file/test-refresh`
+
+## 拦截器,过滤器
+### 全局拦截器中读取request流之后,到controller中@RequestBody读取不到流数据,原因:在interceptor中流被消费了,解决办法:src/main/java/filter
+` curl -X POST -H "Content-Type:application/json" -H "user:tom" -d '{"just":"for test"}' http://127.0.0.1:8888/test/pt?user=jerry`
+```bash
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.6.RELEASE)
+
+2019-08-24 09:58:27.115 - INFO 28605 --- [study] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8888
+-2019-08-24 09:58:27.207 - INFO 28605 --- [study] c.c.c.ConfigServicePropertySourceLocator : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+-2019-08-24 09:58:27.207 - WARN 28605 --- [study] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/application/default": 拒绝连接 (Connection refused); nested exception is java.net.ConnectException: 拒绝连接 (Connection refused)
+-2019-08-24 09:58:27.209 - INFO 28605 --- [study] StudyApplication                         : No active profile set, falling back to default profiles: default
+-2019-08-24 09:58:27.970 - INFO 28605 --- [study] o.s.cloud.context.scope.GenericScope     : BeanFactory id=0e388660-a51b-3b0d-a36f-9d3b084d8e1b
+-2019-08-24 09:58:27.994 - INFO 28605 --- [study] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$ecfaff4f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+-2019-08-24 09:58:28.185 - INFO 28605 --- [study] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+-2019-08-24 09:58:28.208 - INFO 28605 --- [study] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+-2019-08-24 09:58:28.208 - INFO 28605 --- [study] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+-2019-08-24 09:58:28.296 - INFO 28605 --- [study] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+-2019-08-24 09:58:28.296 - INFO 28605 --- [study] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1070 ms
+---------------过滤器初始化------------
+2019-08-24 09:58:28.857 - INFO 28605 --- [study] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+-2019-08-24 09:58:29.227 - INFO 28605 --- [study] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+-2019-08-24 09:58:29.325 - INFO 28605 --- [study] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+-2019-08-24 09:58:29.327 - INFO 28605 --- [study] StudyApplication                         : Started StudyApplication in 3.352 seconds (JVM running for 3.884)
+-2019-08-24 09:58:29.376 - INFO 28605 --- [study] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+-2019-08-24 09:58:29.377 - INFO 28605 --- [study] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+-2019-08-24 09:58:29.385 - INFO 28605 --- [study] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+----------------拦截器开始------------------
+path:tom
+header:jerry
+{"just":"for test"}
+拦截器拦截完成
+---------controller----------
+{"just":"for test"}
+path:tom
+header:jerry
+---------controller----------
+---------------拦截器方法二开始------------------
+---------------拦截器方法三开始------------------
+
+----------------拦截器开始------------------
+path:null
+header:null
+null
+拦截器拦截完成
+---------------拦截器方法二开始------------------
+---------------拦截器方法三开始------------------
+---------------拦截器开始------------------
+path:null
+header:null
+null
+拦截器拦截完成
+---------------拦截器方法二开始------------------
+---------------拦截器方法三开始------------------
+2019-08-24 09:58:49.768 - WARN 28605 --- [study] c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: label not found
+-2019-08-24 09:58:49.913 - INFO 28605 --- [study] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+---------------过滤器销毁------------
+
+Process finished with exit code 130 (interrupted by signal 2: SIGINT)
+
+```

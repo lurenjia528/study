@@ -3,7 +3,9 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+/**
+ * 使用@CrossOrigin代替
+ */
 public class SimpleCORSFilter implements Filter {
 
 	@SuppressWarnings("unused")
