@@ -22,7 +22,7 @@ export default {
 
     const terminal = new Terminal();
     // const ws = new WebSocket("ws://localhost:8888/ws/container/exec?width=1280&height=1280&ip=192.168.40.1&containerId=a5a51edabb3a");
-    const ws = new WebSocket("ws://localhost:8888/ws/container/exec/192.168.40.1/6553b16e1888/1280/1280/20?id=39");
+    const ws = new WebSocket("ws://localhost:8888/ws/container/exec/192.168.40.1/6553b16e1888/1280/1280/20");
     ws.onclose = function() {
       console.log("服务器关闭了连接");
     };

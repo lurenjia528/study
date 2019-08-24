@@ -22,7 +22,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 /**
  * @author lurenjia
  */
-@ServerEndpoint("/ws/container/exec/{ip}/{containerId}/{width}/{height}/{sid}")
+@ServerEndpoint("/ws/container/exec/{ip}/{containerId}/{width}/{height}")
 @Component
 @Slf4j
 public class DockerExecWebSocketServer implements Serializable {
@@ -99,7 +99,7 @@ public class DockerExecWebSocketServer implements Serializable {
      * onOpen  存在String类型参数,则必须使用@PathParam
      */
     @OnOpen
-    public void onOpen(Session session, @PathParam("ip") String ip, @PathParam("containerId") String containerId, @PathParam("width") String width, @PathParam("height") String height, @PathParam("sid") String sid) throws Exception {
+    public void onOpen(Session session, @PathParam("ip") String ip, @PathParam("containerId") String containerId, @PathParam("width") String width, @PathParam("height") String height) throws Exception {
         this.width = width;
         this.height = height;
         this.ip = ip;
