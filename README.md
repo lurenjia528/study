@@ -228,3 +228,20 @@ null
 Process finished with exit code 130 (interrupted by signal 2: SIGINT)
 
 ```
+
+## AOP
+
+参见src/main/java/aop
+
+aop执行顺序：
+
+正常情况
+![正常情况](src/main/resources/image/1正常情况aop.png)
+
+异常情况
+![异常情况](src/main/resources/image/2异常情况aop.png)
+
+多个aop
+![多个aop](src/main/resources/image/3多个aop.png)
+
+[参考](https://blog.csdn.net/rainbow702/article/details/52185827)
