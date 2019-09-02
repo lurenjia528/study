@@ -88,6 +88,7 @@ dependencies {
 
     // docker-client
     compile group: 'com.spotify', name: 'docker-client', version: '8.15.2'
+    compile group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: '2.29'
 
     // springboot热更新配置文件
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-config', version: '2.1.3.RELEASE'
