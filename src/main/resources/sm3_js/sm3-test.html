@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="description" content="SM3摘要加密" />
+<title>SM3摘要加密</title>
+<!-- for pkcs5pkey -->
+<script src="js/core.js"></script>
+<script src="js/cipher-core.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/jsbn2.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/sm3.js"></script>
+<script language="JavaScript" type="text/javascript">
+	function doSM3() {
+		var f1 = document.form1;
+		var msg = f1.sm3input.value;
+		var msgData = CryptoJS.enc.Utf8.parse(msg);
+
+		var md;
+		var sm3keycur = new SM3Digest();
+		msgData = sm3keycur.GetWords(msgData.toString());
+		console.log(msgData);
+		sm3keycur.BlockUpdate(msgData, 0, msgData.length);
+		console.log(msgData);
+		var c3 = new Array(32);
+		sm3keycur.DoFinal(c3, 0);
+		var hashHex = sm3keycur.GetHex(c3).toString();
+		console.log(hashHex);
+		f1.sm3key.value = hashHex.toUpperCase();
+	}
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		if (/msie/.test(navigator.userAgent.toLowerCase())) {
+			document
+					.write("<p><em>若IE浏览器下提示停止运行此脚本，请选择<b>否(N)</b>继续运行。</em></p>");
+		}
+	</script>
+	<!-- now editing -->
+	<form name="form1">
+		<p>
+			加密字符串: <input type="text" name="sm3input" value="" size="100" /><br />
+			<input type="button" value="加密" onClick="doSM3();" /><br /> 加密结果: <input
+				type="text" name="sm3key" value="" size="100" /><br />
+		</p>
+	</form>
+</body>
+</html>

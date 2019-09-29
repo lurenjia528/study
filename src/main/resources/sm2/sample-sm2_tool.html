@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+  <head>	
+    <title>JavaScript��֤SM2ǩ��</title>
+	
+<script language="JavaScript" type="text/javascript" src="components/googlecode/core.js"></script>
+<script language="JavaScript" type="text/javascript" src="components/googlecode/sha1.js"></script>
+<!-- for crypto, asn1, asn1x509 -->
+<script language="JavaScript" type="text/javascript" src="components/yahoo/yahoo-min.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="ext/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="ext/jsbn2.js"></script>
+<script language="JavaScript" type="text/javascript" src="ext/prng4.js"></script>
+<script language="JavaScript" type="text/javascript" src="ext/rng.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="asn1-1.0.js"></script>
+<script language="JavaScript" type="text/javascript" src="asn1x509-1.0.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="ext/base64.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="asn1hex-1.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="x509-1.1.min.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="components/sm2/crypto-1.1.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="ext/ec.js"></script>
+<script language="JavaScript" type="text/javascript" src="ext/ec-patch.js"></script>
+<script language="JavaScript" type="text/javascript" src="ecdsa-modified-1.0.js"></script>
+<script language="JavaScript" type="text/javascript" src="components/sm2/sm3.js"></script>
+<script language="JavaScript" type="text/javascript" src="components/sm2/sm3-sm2-1.0.js"></script>
+<script language="JavaScript" type="text/javascript" src="components/sm2/ecparam-1.0.js"></script>
+
+<script language="JavaScript" type="text/javascript">
+
+function doVerify() {
+  var pubkey = "";
+  var certData = document.getElementById('txtCertData').value;
+  if( certData != "") {
+  	var key = X509.getPublicKeyFromCertPEM(certData);
+	pubkey = key.pubKeyHex;
+  }else {
+  	alert("������֤������!");
+	return false;
+  }
+  
+  var curve = 'sm2';
+  var sigalg = 'SM3withSM2';
+  var msg1 = document.getElementById('txtRawData').value;
+  
+  var sigval = document.getElementById('txtSignData').value;
+  var sigvalHex = b64tohex(sigval);
+  
+  var sigvalHexR = sigvalHex.substr(0, 64);
+  var sigvalHexS = sigvalHex.substr(64,64);
+  var r = new BigInteger(sigvalHexR, 16);
+  var s = new BigInteger(sigvalHexS, 16);
+  sigval = KJUR.crypto.ECDSA.biRSSigToASN1Sig(r, s);
+
+  var sig = new KJUR.crypto.Signature({"alg": sigalg, "prov": "cryptojs/jsrsa"});
+  sig.initVerifyByPublicKey({'ecpubhex': pubkey, 'eccurvename': curve});
+  sig.updateString(msg1);
+  var result = sig.verify(sigval);
+  if (result) {
+    alert("��֤ǩ���ɹ���");
+  } else {
+    alert("��֤ǩ��ʧ�ܣ�");
+  }
+}
+
+</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h2 id="project_tagline">JavaScript��֤SM2ǩ��</h2>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <div><em>
+	  	<script type="text/javascript">if(/msie/.test( navigator.userAgent.toLowerCase() )){ document.write("��IE���������֤ǩ��ʱ��ʾֹͣ���д˽ű�����ѡ���(N)�������С�");}</script>
+	  </em></div>
+      <section class="inner">
+        <fieldset>
+            <legend>SM2ǩ����֤</legend>
+            <ul>
+                <li>
+                    <label>ԭʼ���ݣ�<input type="text" id="txtRawData"  style="width:750px;"  
+					 value="jonllen" /></label>
+                </li>
+                <li>
+                    <label>ǩ�����ݣ�<input type="text" id="txtSignData"  style="width:750px;"
+					 value="64LTP1CphtWrfHnFB3OMyEuV1+ei5DpBPZY39VeQUb9V6yRYP3SbpAWivrpP1q5j0D8b4xQid4327TK9NvEbrA==" /></label>(Base64)
+                </li>
+				<li>
+                    <label>֤�����ݣ�<textarea id="txtCertData" style="width:750px; height:40px;">MIICQDCCAeWgAwIBAgIQG2THdO0arf/KaLKoTVlCOzAMBggqgRzPVQGDdQUAMB8xEDAOBgNVBAMMB1NNMlJPT1QxCzAJBgNVBAYTAkNOMB4XDTE0MDYxODEzNTgzNVoXDTE2MDYxODEzNTgzNVowZTEiMCAGCSqGSIb3DQEJARYTam9ubGxlbkBob3RtYWlsLmNvbTEPMA0GA1UEBwwG6ZW/5rKZMQ8wDQYDVQQIDAbmuZbljZcxCzAJBgNVBAYTAkNOMRAwDgYDVQQDDAdKb25sbGVuMFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEXLAuT39XB5LJmTprFiGLPfqZl5tyGm1n9oXSVDrGRP2RfQRJOqD6cH6PEvmGhM1ydJv0iQMg2mvh6PjAlm58W6OBujCBtzAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQstXX3UIwlBK9k70GJYGM8mjG6gTAfBgNVHSMEGDAWgBQ/LpOmNnAJt7mAwIZpsX3cnqlkqjBCBggrBgEFBQcBAQQ2MDQwMgYIKwYBBQUHMAKGJmh0dHA6Ly9sb2NhbGhvc3QvUEtJL2NlcnRzL0RTQVJPT1QuY3J0MA4GA1UdDwEB/wQEAwIE8DATBgNVHSUEDDAKBggrBgEFBQcDAjAMBggqgRzPVQGDdQUAA0cAMEQCIBJO7K/XDt+igzKkWSkbRKZRtQKsS1i2Fmdp2Ar5EEL+AiA759mE/uINaEC7sMXOoqzTzkLCMIHGyLi80j0dG5pjow==</textarea></label>(Base64)
+                </li>
+				<li style="list-style:none;">
+					<input type="button" value="��֤ǩ��" onClick="doVerify()" />
+				</li>
+            </ul>
+            <div>
+                
+            </div>
+        </fieldset>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Powered By <a href="http://www.jonllen.com/">Jonllen</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
